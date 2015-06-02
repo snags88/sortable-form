@@ -1,0 +1,27 @@
+<h1><%= @album.title %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>Order</td>
+      <td>Description</td>
+      <td>Token</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @album.photos.each do |photo| %>
+    <tr>
+      <td><%= photo.order %></td>
+      <td><%= photo.description %></td>
+      <td><%= photo.token %></td>
+    </tr>
+  <%- end -%>
+  </tbody>
+</table>
+
+<br><br>
+<%= link_to 'Add Photo', new_album_photo_path(@album) %>
+<br><br>
+<%= link_to 'Edit Photo Order', edit_album_path(@album) %>
+<br><br>
+<%= link_to 'Album Index', albums_path %>
