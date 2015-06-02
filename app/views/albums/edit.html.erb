@@ -1,0 +1,7 @@
+<h1>Edit Photo Order</h1>
+
+<ul id="sortable">
+  <%- @album.photos.each do |photo| -%>
+  <li><%= photo.description %></li>
+  <%- end -%>
+</ul>
