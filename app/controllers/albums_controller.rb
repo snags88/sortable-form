@@ -22,6 +22,8 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    @album.update_order(order_params[:tokens])
+    redirect_to @album
   end
 
   def destroy
@@ -36,6 +38,10 @@ class AlbumsController < ApplicationController
 
     def album_params
       params.require(:album).permit(:title)
+    end
+
+    def order_params
+      params.require(:photo).permit(:tokens)
     end
 
 end

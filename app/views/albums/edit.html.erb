@@ -1,7 +1,11 @@
 <h1>Edit Photo Order</h1>
 
-<ul id="sortable">
-  <%- @album.photos.each do |photo| -%>
-  <li><%= photo.description %></li>
-  <%- end -%>
-</ul>
+<%= form_for @album, :html => {id: "sortForm"} do |f| %>
+  <ol id="sortable">
+    <%- ordered_album_photos.each do |photo| -%>
+    <li class="ui-state-default" id="<%= photo.token %>"><%= photo.description %></li>
+    <%- end -%>
+  </ol>
+  <input type="text" name="photo[tokens]" id="newOrder" style="display: none;">
+  <%= f.submit "Save" %>
+<%- end -%>
